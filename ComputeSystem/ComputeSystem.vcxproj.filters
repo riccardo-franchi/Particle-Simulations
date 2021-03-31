@@ -57,4 +57,10 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\agent.comp.glsl" />
+    <None Include="Shaders\main.frag.glsl" />
+    <None Include="Shaders\main.vert.glsl" />
+    <None Include="Shaders\textureProc.comp.glsl" />
+  </ItemGroup>
 </Project>
