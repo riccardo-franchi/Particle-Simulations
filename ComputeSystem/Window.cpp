@@ -30,7 +30,7 @@ Window::Window(int width, int height, std::string name, int swapInterval, bool i
 		std::cout << "Failed to load GLAD.\n";
 	}
 
-	m_agentSystem = AgentSystem(width, height, NUM_AGENTS, -1, PositionMode::CENTER);
+	m_agentSystem = AgentSystem(width, height, NUM_AGENTS, 0, PositionMode::CENTER);
 
 	m_program = new Shader("Shaders/main.vert.glsl", "Shaders/main.frag.glsl");
 	m_agentComputeProgram = new ComputeShader("Shaders/agent.comp.glsl");
