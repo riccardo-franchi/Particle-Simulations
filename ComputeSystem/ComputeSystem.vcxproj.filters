@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{048c71ce-0f5d-46b8-b05c-25c296b7bb02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -58,9 +61,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\agent.comp.glsl" />
-    <None Include="Shaders\main.frag.glsl" />
-    <None Include="Shaders\main.vert.glsl" />
-    <None Include="Shaders\textureProc.comp.glsl" />
+    <None Include="Shaders\textureProc.comp.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\main.vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\main.frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\agent.comp.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

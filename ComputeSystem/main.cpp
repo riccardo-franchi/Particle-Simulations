@@ -2,7 +2,7 @@
 
 int main()
 {
-	Window window = Window(1920, 1080, "Compute", 0, true);
+	Window window = Window(1920, 1080, "Physarum Simulation", 0, false);
 	window.run();
 
 	return 0;
