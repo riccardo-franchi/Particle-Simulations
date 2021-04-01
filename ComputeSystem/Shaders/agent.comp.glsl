@@ -6,6 +6,7 @@ struct Agent
 {
     float x, y;
     float angle;
+    int speciesMask;
 };
 
 layout (local_size_x = 64, local_size_y = 1) in;
@@ -21,8 +22,8 @@ const ivec2 imgSize = imageSize(imgOutput);
 
 const float agentSpeed = 180.0;
 const float turnSpeed = 100.0;
-const float sensorOffsetDst = 50.0;
-const float sensorAngleSpacing = 0.1;
+const float sensorOffsetDst = 16.0;
+const float sensorAngleSpacing = 0.6;
 const int sensorSize = 3;
 
 uint hash(uint state) 
@@ -41,7 +42,7 @@ float scaleRantomTo01(uint random)
     return float(random) / 4294967295.0;
 }
 
-float sense(Agent agent, float sensorAngleOffset)
+float sense(Agent agent, float sensorAngleOffset, vec4 speciesMask)
 {
     float sensorAngle = agent.angle + sensorAngleOffset;
     vec2 sensorDir = vec2(cos(sensorAngle), sin(sensorAngle));
@@ -53,7 +54,7 @@ float sense(Agent agent, float sensorAngleOffset)
         {
             ivec2 pos = sensorCenter + ivec2(x_off, y_off);
             if (pos.x >= 0 && pos.x < imgSize.x && pos.y >= 0 && pos.y < imgSize.y)
-                sum += imageLoad(imgOutput, pos).r;
+                sum += dot(imageLoad(imgOutput, pos), speciesMask * 2 - 1);
         }
 
         return sum;
@@ -78,9 +79,14 @@ void main()
         agents[i].angle = scaleRantomTo01(random) * TWO_PI;
     }
 
-    float weightForward = sense(currAgent, 0);
-    float weightLeft = sense(currAgent, sensorAngleSpacing);
-    float weightRight = sense(currAgent, -sensorAngleSpacing);
+    vec4 speciesMask = vec4(0.0, 0.0, 0.0, 1.0);
+    if (currAgent.speciesMask == -1)
+        speciesMask = vec4(1.0);
+    speciesMask[currAgent.speciesMask] = 1.0;
+
+    float weightForward = sense(currAgent, 0, speciesMask);
+    float weightLeft = sense(currAgent, sensorAngleSpacing, speciesMask);
+    float weightRight = sense(currAgent, -sensorAngleSpacing, speciesMask);
 
     float randomSteerStrength = scaleRantomTo01(random);
 
@@ -99,5 +105,5 @@ void main()
     agents[i].x = position.x;
     agents[i].y = position.y;
 
-    imageStore(imgOutput, ivec2(position), vec4(1.0));
+    imageStore(imgOutput, ivec2(position), speciesMask);
 }
