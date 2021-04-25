@@ -57,7 +57,7 @@ float sense(Agent agent, float sensorAngleOffset, vec4 speciesMask)
                 sum += dot(imageLoad(imgOutput, pos), speciesMask * 2 - 1);
         }
 
-        return sum;
+    return sum;
 }
 
 void main() 
