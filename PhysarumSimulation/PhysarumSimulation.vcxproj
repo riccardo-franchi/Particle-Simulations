@@ -154,6 +154,7 @@
     <ClCompile Include="ComputeShader.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PhysarumSimulation.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="Agents.hpp" />
     <ClInclude Include="ComputeShader.h" />
+    <ClInclude Include="PhysarumSimulation.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Texture.h" />

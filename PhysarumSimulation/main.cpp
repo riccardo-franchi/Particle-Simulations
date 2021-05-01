@@ -1,9 +1,9 @@
-#include "Window.h"
+#include "PhysarumSimulation.h"
 
 int main()
 {
-	Window window = Window(1920, 1080, "Physarum Simulation", 0, true);
-	window.run();
+	PhysarumSimulation physarumSimulation = PhysarumSimulation(1920, 1080, 0, true);
+	physarumSimulation.run();
 
 	return 0;
 }

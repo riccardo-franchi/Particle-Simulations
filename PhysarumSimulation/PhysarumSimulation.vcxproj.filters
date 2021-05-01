@@ -39,6 +39,9 @@
     <ClCompile Include="ComputeShader.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="PhysarumSimulation.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -57,6 +60,9 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Agents.hpp">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysarumSimulation.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
