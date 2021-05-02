@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 #include "Agents.hpp"
 
@@ -18,13 +19,13 @@ public:
 
 	AgentSystem m_agentSystem;
 
-	Window* m_window;
+	std::unique_ptr<Window> m_window;
 
-	Shader* m_program;
-	ComputeShader* m_agentComputeProgram;
-	ComputeShader* m_textureComputeProgram;
+	std::unique_ptr <Shader> m_program;
+	std::unique_ptr <ComputeShader> m_agentComputeProgram;
+	std::unique_ptr <ComputeShader> m_textureComputeProgram;
 
-	Texture* m_initialTexture;
-	Texture* m_processedTexture;
-	Sprite* m_quad;
+	std::unique_ptr <Texture> m_initialTexture;
+	std::unique_ptr <Texture> m_processedTexture;
+	std::unique_ptr <Sprite> m_quad;
 };

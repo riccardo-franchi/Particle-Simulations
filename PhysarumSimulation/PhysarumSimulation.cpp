@@ -14,25 +14,22 @@ PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapIn
 {
 	m_agentSystem = AgentSystem(win_width, win_height, NUM_AGENTS, 3, PositionMode::CENTER);
 
-	m_window = new Window(win_width, win_height, "Physarum Simulation", swapInterval, isFullscreen);
+	m_window = std::make_unique<Window>(win_width, win_height, "Physarum Simulation", swapInterval, isFullscreen);
 
-	m_program = new Shader("Shaders/main.vert.glsl", "Shaders/main.frag.glsl");
-	m_agentComputeProgram = new ComputeShader("Shaders/agent.comp.glsl");
-	m_textureComputeProgram = new ComputeShader("Shaders/textureProc.comp.glsl");
+	m_program = std::make_unique<Shader>("Shaders/main.vert.glsl", "Shaders/main.frag.glsl");
+	m_agentComputeProgram = std::make_unique<ComputeShader>("Shaders/agent.comp.glsl");
+	m_textureComputeProgram = std::make_unique<ComputeShader>("Shaders/textureProc.comp.glsl");
 
 	m_agentComputeProgram->useShaderStorageBuffer(NUM_AGENTS * sizeof(Agent), (void*)&m_agentSystem.getAgents()[0]);
 
-	m_initialTexture = new Texture(win_width, win_height, GL_READ_WRITE);
-	m_processedTexture = new Texture(win_width, win_height, GL_WRITE_ONLY);
+	m_initialTexture = std::make_unique<Texture>(win_width, win_height, GL_READ_WRITE);
+	m_processedTexture = std::make_unique<Texture>(win_width, win_height, GL_WRITE_ONLY);
 
-	m_quad = new Sprite(-1.0f, 1.0f, 1.0f, -1.0f, m_processedTexture->id);
+	m_quad = std::make_unique<Sprite>(-1.0f, 1.0f, 1.0f, -1.0f, m_processedTexture->id);
 }
 
 PhysarumSimulation::~PhysarumSimulation()
 {
-	delete m_window;
-	delete m_program, m_agentComputeProgram, m_textureComputeProgram;
-	delete m_initialTexture, m_processedTexture, m_quad;
 }
 
 void PhysarumSimulation::run()
