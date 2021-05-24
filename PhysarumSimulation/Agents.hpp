@@ -66,7 +66,7 @@ public:
 		default:
 			for (size_t i = 0; i < numAgents; i++)
 			{
-				m_agents.at(i) = { position_x(randGen), position_y(randGen), angle(randGen), (numSpecies < 2) ? 0 : species(randGen) };
+				m_agents.at(i) = { position_x(randGen), position_y(randGen), angle(randGen), (numSpecies < 2) ? -1 : species(randGen) };
 			}
 			break;
 		}

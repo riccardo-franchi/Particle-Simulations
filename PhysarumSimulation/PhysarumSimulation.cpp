@@ -12,7 +12,7 @@ const size_t NUM_AGENTS = 131072;
 
 PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapInterval, bool isFullscreen)
 {
-	m_agentSystem = AgentSystem(win_width, win_height, NUM_AGENTS, 3, PositionMode::CENTER);
+	m_agentSystem = AgentSystem(win_width, win_height, NUM_AGENTS, 1, PositionMode::RANDOM);
 
 	m_window = std::make_unique<Window>(win_width, win_height, "Physarum Simulation", swapInterval, isFullscreen);
 
