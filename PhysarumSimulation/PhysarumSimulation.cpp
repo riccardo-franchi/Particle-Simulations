@@ -50,7 +50,7 @@ void PhysarumSimulation::run()
 		glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT | GL_SHADER_STORAGE_BARRIER_BIT);
 
 		m_textureComputeProgram->use();
-		m_agentComputeProgram->setFloat("deltaTime", deltaTime);
+		m_textureComputeProgram->setFloat("deltaTime", deltaTime);
 		m_textureComputeProgram->dispatch(groups_x, groups_y, 1);
 
 		glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
