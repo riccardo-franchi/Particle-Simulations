@@ -1,4 +1,4 @@
-#include "Sprite.h"
+#include "Sprite.hpp"
 
 Sprite::Sprite(float x0, float y0, float xf, float yf, GLuint texture_id)
 	: m_texture_id(texture_id)

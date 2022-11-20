@@ -1,4 +1,4 @@
-#include "ComputeShader.h"
+#include "ComputeShader.hpp"
 
 ComputeShader::ComputeShader(const GLchar* computePath)
 {

@@ -162,12 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agents.hpp" />
-    <ClInclude Include="ComputeShader.h" />
-    <ClInclude Include="PhysarumSimulation.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="ComputeShader.hpp" />
+    <ClInclude Include="PhysarumSimulation.hpp" />
+    <ClInclude Include="Shader.hpp" />
+    <ClInclude Include="Sprite.hpp" />
+    <ClInclude Include="Texture.hpp" />
+    <ClInclude Include="Window.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\agent.comp.glsl" />

@@ -44,25 +44,25 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="Window.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Sprite.h">
+    <ClInclude Include="Sprite.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="Shader.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="Texture.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="ComputeShader.h">
+    <ClInclude Include="ComputeShader.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Agents.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="PhysarumSimulation.h">
+    <ClInclude Include="PhysarumSimulation.hpp">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

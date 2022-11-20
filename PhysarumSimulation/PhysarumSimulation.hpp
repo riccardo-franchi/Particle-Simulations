@@ -17,6 +17,8 @@ public:
 
 	void run();
 
+	const size_t NUM_AGENTS;
+
 	AgentSystem m_agentSystem;
 
 	std::unique_ptr<Window> m_window;

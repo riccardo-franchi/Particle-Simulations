@@ -1,5 +1,5 @@
 #pragma once
-#include "Shader.h"
+#include "Shader.hpp"
 
 class ComputeShader : public Shader
 {

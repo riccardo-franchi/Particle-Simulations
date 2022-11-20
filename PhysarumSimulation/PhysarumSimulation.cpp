@@ -1,16 +1,18 @@
-#include "PhysarumSimulation.h"
+#include "PhysarumSimulation.hpp"
 
 #include <glad/glad.h>
 
-#include "Window.h"
-#include "Shader.h"
-#include "ComputeShader.h"
-#include "Texture.h"
-#include "Sprite.h"
+#include "Window.hpp"
+#include "Shader.hpp"
+#include "ComputeShader.hpp"
+#include "Texture.hpp"
+#include "Sprite.hpp"
 
-const size_t NUM_AGENTS = 131072;
+// Ratio of particles over total pixels
+const float PARTICLE_RATIO = 0.03f;
 
 PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapInterval, bool isFullscreen)
+	: NUM_AGENTS((size_t)(PARTICLE_RATIO * win_width * win_height))
 {
 	m_agentSystem = AgentSystem(win_width, win_height, NUM_AGENTS, 1, PositionMode::RANDOM);
 

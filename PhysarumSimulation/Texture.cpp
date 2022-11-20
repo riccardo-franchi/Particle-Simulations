@@ -1,4 +1,4 @@
-#include "Texture.h"
+#include "Texture.hpp"
 
 Texture::Texture(int w, int h, GLenum access)
 {
