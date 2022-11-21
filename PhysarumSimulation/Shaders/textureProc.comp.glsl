@@ -29,7 +29,7 @@ void main()
     vec4 diffusedValue = mix(originalValue, blurred, diffuseSpeed * deltaTime);
     vec4 diffusedEvaporatedValue = diffusedValue - evaporateSpeed * deltaTime;
 
-    vec4 processedValue = vec4(diffusedEvaporatedValue.r - 0.1, diffusedEvaporatedValue.g - 0.015, diffusedEvaporatedValue.b -0.01, 1.0);
+    vec4 processedValue = vec4(diffusedEvaporatedValue.r - 0.015, diffusedEvaporatedValue.g - 0.05, diffusedEvaporatedValue.b -0.1, 1.0);
 
     imageStore(imgOutput, pixelCoords, processedValue);
 }
