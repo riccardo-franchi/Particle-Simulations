@@ -9,7 +9,7 @@
 #include "Sprite.hpp"
 
 // Ratio of particles over total pixels
-const float PARTICLE_RATIO = 0.03f;
+const float PARTICLE_RATIO = 0.04f;
 
 PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapInterval, bool isFullscreen)
 	: NUM_AGENTS((size_t)(PARTICLE_RATIO * win_width * win_height))

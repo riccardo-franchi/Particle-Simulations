@@ -18,7 +18,7 @@ layout (std430, binding = 2) buffer Agents
 
 uniform float deltaTime;
 
-const ivec2 imgSize = imageSize(imgOutput);
+ivec2 imgSize = imageSize(imgOutput);
 
 const float agentSpeed = 180.0;
 const float turnSpeed = 100.0;
