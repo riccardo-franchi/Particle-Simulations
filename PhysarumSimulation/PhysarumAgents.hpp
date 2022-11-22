@@ -17,11 +17,11 @@ enum class PositionMode
 	RANDOM, CIRCLE, CENTER
 };
 
-class AgentSystem
+class PhysarumAgentSystem
 {
 public:
-	AgentSystem() : m_numAgents(0) {}
-	AgentSystem(int width, int height, size_t numAgents, int8_t numSpecies, PositionMode posMode = PositionMode::RANDOM)
+	PhysarumAgentSystem() : m_numAgents(0) {}
+	PhysarumAgentSystem(int width, int height, size_t numAgents, int8_t numSpecies, PositionMode posMode = PositionMode::RANDOM)
 		: m_numAgents(numAgents)
 	{
 		if (numSpecies > 3) numSpecies = 3;

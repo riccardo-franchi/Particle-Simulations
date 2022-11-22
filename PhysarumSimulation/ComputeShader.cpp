@@ -16,7 +16,7 @@ ComputeShader::ComputeShader(const GLchar* computePath)
 	}
 	catch (std::ifstream::failure e)
 	{
-		std::cout << "Couldn't read compute shader file.\n";
+		std::cout << "Couldn't read compute shader file at path: " << computePath << std::endl;
 	}
 	const char* cshCode = computeCode.c_str();
 

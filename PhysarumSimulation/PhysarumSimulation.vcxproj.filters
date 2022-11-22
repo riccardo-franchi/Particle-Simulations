@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="File di intestazione">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Shaders">
       <UniqueIdentifier>{048c71ce-0f5d-46b8-b05c-25c296b7bb02}</UniqueIdentifier>
     </Filter>
@@ -16,68 +12,80 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Physarum">
+      <UniqueIdentifier>{eed0c58d-5a66-4c56-af67-f0db3d6143dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\Physarum">
+      <UniqueIdentifier>{ce13503b-96a2-409c-8461-c8ce977d6169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{c3a3fa33-eb9b-4106-bd24-ea76da4737cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Window.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="PhysarumSimulation.cpp">
+      <Filter>Physarum</Filter>
     </ClCompile>
     <ClCompile Include="ComputeShader.cpp">
-      <Filter>File di origine</Filter>
+      <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="PhysarumSimulation.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.hpp">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="PhysarumSimulation.hpp">
+      <Filter>Physarum</Filter>
     </ClInclude>
-    <ClInclude Include="Sprite.hpp">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="PhysarumAgents.hpp">
+      <Filter>Physarum</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.hpp">
+      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Shader.hpp">
-      <Filter>File di intestazione</Filter>
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.hpp">
+      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Texture.hpp">
-      <Filter>File di intestazione</Filter>
+      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="ComputeShader.hpp">
-      <Filter>File di intestazione</Filter>
+      <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Agents.hpp">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysarumSimulation.hpp">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="Simulation.hpp">
+      <Filter>File di origine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\textureProc.comp.glsl">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="Shaders\main.vert.glsl">
       <Filter>Shaders</Filter>
     </None>
     <None Include="Shaders\main.frag.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Shaders\agent.comp.glsl">
-      <Filter>Shaders</Filter>
+    <None Include="Shaders\Physarum\agent.comp.glsl">
+      <Filter>Shaders\Physarum</Filter>
+    </None>
+    <None Include="Shaders\Physarum\textureProc.comp.glsl">
+      <Filter>Shaders\Physarum</Filter>
     </None>
   </ItemGroup>
 </Project>
