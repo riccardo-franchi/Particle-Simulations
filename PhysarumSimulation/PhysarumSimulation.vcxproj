@@ -155,6 +155,7 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysarumSimulation.cpp" />
+    <ClCompile Include="ReactionDiffusion.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="PhysarumAgents.hpp" />
     <ClInclude Include="ComputeShader.hpp" />
     <ClInclude Include="PhysarumSimulation.hpp" />
+    <ClInclude Include="ReactionDiffusion.hpp" />
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="Simulation.hpp" />
     <ClInclude Include="Sprite.hpp" />
@@ -175,6 +177,9 @@
     <None Include="Shaders\main.vert.glsl" />
     <None Include="Shaders\Physarum\agent.comp.glsl" />
     <None Include="Shaders\Physarum\textureProc.comp.glsl" />
+    <None Include="Shaders\Reaction-Diffusion\initTexture.comp.glsl" />
+    <None Include="Shaders\Reaction-Diffusion\outputMap.comp.glsl" />
+    <None Include="Shaders\Reaction-Diffusion\reactionMap.comp.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

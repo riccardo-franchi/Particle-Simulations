@@ -1,4 +1,5 @@
 #include "PhysarumSimulation.hpp"
+#include "ReactionDiffusion.hpp"
 
 #ifdef _WIN32
 	#include <Windows.h>
@@ -14,10 +15,13 @@
 	#endif
 #endif
 
+constexpr int HEIGHT = 1600;
+constexpr int WIDTH = HEIGHT * 16 / 10;
+
 int main()
 {
-	auto physarumSimulation = std::make_unique<PhysarumSimulation>(2560, 1600, 1, true);
-	physarumSimulation->run();
+	auto simulation = std::make_unique<PhysarumSimulation>(WIDTH, HEIGHT, 1, true);
+	simulation->run();
 
 	return 0;
 }

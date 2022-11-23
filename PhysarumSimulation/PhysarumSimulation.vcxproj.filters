@@ -12,14 +12,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Physarum">
-      <UniqueIdentifier>{eed0c58d-5a66-4c56-af67-f0db3d6143dc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Shaders\Physarum">
       <UniqueIdentifier>{ce13503b-96a2-409c-8461-c8ce977d6169}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics">
       <UniqueIdentifier>{c3a3fa33-eb9b-4106-bd24-ea76da4737cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reaction-Diffusion">
+      <UniqueIdentifier>{bf044567-8767-4ae4-b38f-62d7512e91da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\Reaction-Diffusion">
+      <UniqueIdentifier>{0412450a-c66f-4f87-bd89-41a3005a6f6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physarum">
+      <UniqueIdentifier>{eed0c58d-5a66-4c56-af67-f0db3d6143dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +53,9 @@
     <ClCompile Include="Window.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="ReactionDiffusion.cpp">
+      <Filter>Reaction-Diffusion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysarumSimulation.hpp">
@@ -73,6 +82,9 @@
     <ClInclude Include="Simulation.hpp">
       <Filter>File di origine</Filter>
     </ClInclude>
+    <ClInclude Include="ReactionDiffusion.hpp">
+      <Filter>Reaction-Diffusion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\main.vert.glsl">
@@ -86,6 +98,15 @@
     </None>
     <None Include="Shaders\Physarum\textureProc.comp.glsl">
       <Filter>Shaders\Physarum</Filter>
+    </None>
+    <None Include="Shaders\Reaction-Diffusion\reactionMap.comp.glsl">
+      <Filter>Shaders\Reaction-Diffusion</Filter>
+    </None>
+    <None Include="Shaders\Reaction-Diffusion\outputMap.comp.glsl">
+      <Filter>Shaders\Reaction-Diffusion</Filter>
+    </None>
+    <None Include="Shaders\Reaction-Diffusion\initTexture.comp.glsl">
+      <Filter>Shaders\Reaction-Diffusion</Filter>
     </None>
   </ItemGroup>
 </Project>
