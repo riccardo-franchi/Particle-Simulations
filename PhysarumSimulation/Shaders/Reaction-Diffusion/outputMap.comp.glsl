@@ -21,8 +21,10 @@ void main()
 
 		if (displayMode == 0) 
 		{
-			// a is red and b is green
-			imageStore(imgOutput, pixelCoords, m); 
+			vec3 aCol = vec3(0.0, 0.0549, 0.411);
+			vec3 bCol = vec3(1.0, 0.937, 0.451);
+			vec3 col = mix(aCol, bCol, 1 - a + b);
+			imageStore(imgOutput, pixelCoords, vec4(col, 1.0)); 
 		}
 		else if (displayMode == 1)
 		{

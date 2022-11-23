@@ -6,7 +6,7 @@
 #include "Texture.hpp"
 #include "Sprite.hpp"
 
-const int COMPUTATIONS_PER_FRAME = 10;
+const int COMPUTATIONS_PER_FRAME = 20;
 
 ReactionDiffusion::ReactionDiffusion(int win_width, int win_height, int swapInterval, bool isFullscreen)
 {
