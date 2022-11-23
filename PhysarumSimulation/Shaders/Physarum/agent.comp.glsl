@@ -10,7 +10,7 @@ struct Agent
 };
 
 layout (local_size_x = 64, local_size_y = 1) in;
-layout (rgba32f) uniform image2D imgOutput;
+layout (rgba32f, binding = 0) uniform image2D imgOutput;
 layout (std430, binding = 2) buffer Agents
 {
     Agent agents[];
@@ -37,7 +37,7 @@ uint hash(uint state)
     return state;
 }
 
-float scaleRantomTo01(uint random)
+float scaleRandomTo01(uint random)
 {
     return float(random) / 4294967295.0;
 }
@@ -76,7 +76,7 @@ void main()
     {
         position.x = min(imgSize.x - 0.01, max(0, position.x));
         position.y = min(imgSize.y - 0.01, max(0, position.y));
-        agents[i].angle = scaleRantomTo01(random) * TWO_PI;
+        agents[i].angle = scaleRandomTo01(random) * TWO_PI;
     }
 
     vec4 speciesMask = vec4(0.0, 0.0, 0.0, 1.0);
@@ -88,7 +88,7 @@ void main()
     float weightLeft = sense(currAgent, sensorAngleSpacing, speciesMask);
     float weightRight = sense(currAgent, -sensorAngleSpacing, speciesMask);
 
-    float randomSteerStrength = scaleRantomTo01(random);
+    float randomSteerStrength = scaleRandomTo01(random);
 
     if (weightForward > weightLeft && weightForward > weightRight) {}
 

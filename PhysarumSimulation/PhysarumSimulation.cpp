@@ -7,12 +7,12 @@
 #include "Sprite.hpp"
 
 // Ratio of particles over total pixels
-const float PARTICLE_RATIO = 0.04f;
+const double PARTICLE_RATIO = 0.04;
 
 PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapInterval, bool isFullscreen)
-	: NUM_AGENTS((size_t)(PARTICLE_RATIO * win_width * win_height))
+	: NUM_AGENTS(static_cast<size_t>(PARTICLE_RATIO * win_width * win_height))
 {
-	m_agentSystem = PhysarumAgentSystem(win_width, win_height, NUM_AGENTS, 1, PositionMode::CENTER);
+	m_agentSystem = PhysarumAgentSystem(win_width, win_height, NUM_AGENTS, 1, PositionMode::RANDOM);
 
 	m_window = std::make_unique<Window>(win_width, win_height, "Physarum Simulation", swapInterval, isFullscreen);
 
@@ -22,10 +22,9 @@ PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapIn
 
 	m_agentComputeProgram->useShaderStorageBuffer(NUM_AGENTS * sizeof(Agent), (void*)&m_agentSystem.getAgents()[0]);
 
-	m_initialTexture = std::make_unique<Texture>(win_width, win_height, GL_READ_WRITE);
-	m_processedTexture = std::make_unique<Texture>(win_width, win_height, GL_WRITE_ONLY);
+	m_initialTexture = std::make_unique<Texture>(win_width, win_height, 0, GL_READ_WRITE);
 
-	m_quad = std::make_unique<Sprite>(-1.0f, 1.0f, 1.0f, -1.0f, m_processedTexture->id);
+	m_quad = std::make_unique<Sprite>(-1.0f, 1.0f, 1.0f, -1.0f, m_initialTexture->id);
 }
 
 PhysarumSimulation::~PhysarumSimulation()
@@ -34,7 +33,7 @@ PhysarumSimulation::~PhysarumSimulation()
 
 void PhysarumSimulation::run()
 {
-	GLuint groups_a = NUM_AGENTS / 64;
+	GLuint groups_a = static_cast<GLuint>(NUM_AGENTS / 64);
 	GLuint groups_x = m_window->getWidth() / 8;
 	GLuint groups_y = m_window->getHeight() / 8;
 
