@@ -11,6 +11,14 @@ public:
 	void run() override;
 
 private:
+
+	enum class DisplayMode
+	{
+		AB, GREYSCALE, DELTA1, DELTA2
+	};
+
 	std::unique_ptr<ComputeShader> m_textureInitComputeProgram;
+
+	DisplayMode m_displayMode = DisplayMode::AB;
 };
 

@@ -21,11 +21,13 @@ void main()
 
 		if (displayMode == 0) 
 		{
+			// a is red and b is green
 			imageStore(imgOutput, pixelCoords, m); 
 		}
 		else if (displayMode == 1)
 		{
-			imageStore(imgOutput, pixelCoords, vec4(vec3(a-b), 1.0));
+			// a is black and b is white
+			imageStore(imgOutput, pixelCoords, vec4(1 - a + b));
 		}
 		else if (displayMode == 2)
 		{

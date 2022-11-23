@@ -16,6 +16,7 @@ public:
 	int getWidth() const { return m_winWidth; }
 	int getHeight() const { return m_winHeight; }
 	float getDeltaTime() const { return m_deltaTime; }
+	GLFWwindow* getWindowPtr() const { return m_win; }
 
 private:
 	void processInput();

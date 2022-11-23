@@ -6,12 +6,7 @@
 #include "Texture.hpp"
 #include "Sprite.hpp"
 
-const int COMPUTATIONS_PER_FRAME = 20;
-
-enum class DisplayMode
-{
-	AB, GREYSCALE, DELTA1, DELTA2
-};
+const int COMPUTATIONS_PER_FRAME = 10;
 
 ReactionDiffusion::ReactionDiffusion(int win_width, int win_height, int swapInterval, bool isFullscreen)
 {
@@ -55,7 +50,7 @@ void ReactionDiffusion::run()
 		glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
 
 		m_textureComputeProgram->use();
-		m_textureComputeProgram->setInt("displayMode", static_cast<int>(DisplayMode::AB));
+		m_textureComputeProgram->setInt("displayMode", static_cast<int>(m_displayMode));
 		m_textureComputeProgram->dispatch(groups_x, groups_y, 1);
 
 		glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
@@ -65,6 +60,15 @@ void ReactionDiffusion::run()
 
 		m_program->use();
 		m_quad->draw();
+
+		if (glfwGetKey(m_window->getWindowPtr(), GLFW_KEY_1) == GLFW_PRESS)
+		{ m_displayMode = DisplayMode::AB; }
+		else if (glfwGetKey(m_window->getWindowPtr(), GLFW_KEY_2) == GLFW_PRESS)
+		{ m_displayMode = DisplayMode::GREYSCALE; }
+		else if (glfwGetKey(m_window->getWindowPtr(), GLFW_KEY_3) == GLFW_PRESS)
+		{ m_displayMode = DisplayMode::DELTA1; }
+		else if (glfwGetKey(m_window->getWindowPtr(), GLFW_KEY_4) == GLFW_PRESS)
+		{ m_displayMode = DisplayMode::DELTA2; }
 
 		m_window->unuse();
 	}
