@@ -1,6 +1,6 @@
 #include "Window.hpp"
 
-Window::Window(int width, int height, std::string name, int swapInterval, bool isFullscreen) 
+Window::Window(int width, int height, const std::string& name, int swapInterval, bool isFullscreen) 
 	: m_winWidth(width), m_winHeight(height)
 {
 	glfwInit();

@@ -6,7 +6,7 @@
 class Window
 {
 public:
-	Window(int width, int height, std::string name, int swapInterval, bool isFullscreen);
+	Window(int width, int height, const std::string& name, int swapInterval, bool isFullscreen);
 	~Window();
 
 	void use();

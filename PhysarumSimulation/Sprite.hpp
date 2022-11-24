@@ -1,4 +1,5 @@
 #pragma once
+#include <array>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
@@ -14,5 +15,5 @@ private:
 
 	GLuint m_vbo = 0, m_vao = 0;
 	GLuint m_texture_id = 0;
-	glm::vec4 m_vertices[6];
+	std::array<glm::vec4, 6> m_vertices;
 };
