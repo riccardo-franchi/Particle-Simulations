@@ -10,11 +10,11 @@ void main()
 {
 		ivec2 pixelCoords = ivec2(gl_GlobalInvocationID.xy);
 
-		vec4 m = imageLoad(inputMap, pixelCoords);
-		float a = m.x;
-		float b = m.y;
+		const vec4 m = imageLoad(inputMap, pixelCoords);
+		const float a = m.x;
+		const float b = m.y;
+		const float deltaB = m.w;
 		float deltaA = m.z;
-		float deltaB = m.w;
 
 		const float deltaThreshold = 0.0005;
 		deltaA = max(0, deltaA - deltaThreshold);
