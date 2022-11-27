@@ -51,7 +51,7 @@ public:
 					pos_x = position_x(randGen);
 					pos_y = position_y(randGen);
 				} while (powf(pos_x - width * 0.5f, 2) + powf(pos_y - height * 0.5f, 2) > (radius * radius));
-				m_agents.at(i) = { pos_x, pos_y, angle(randGen), species_mask};
+				m_agents[i] = { pos_x, pos_y, angle(randGen), species_mask};
 			}
 			break;
 		}
@@ -61,7 +61,7 @@ public:
 			float pos_y = height * 0.5f;
 			for (size_t i = 0; i < numAgents; i++)
 			{
-				m_agents.at(i) = { pos_x, pos_y, angle(randGen), species_mask };
+				m_agents[i] = { pos_x, pos_y, angle(randGen), species_mask };
 			}
 			break;
 		}
@@ -69,7 +69,7 @@ public:
 		default:
 			for (size_t i = 0; i < numAgents; i++)
 			{
-				m_agents.at(i) = { position_x(randGen), position_y(randGen), angle(randGen), species_mask };
+				m_agents[i] = { position_x(randGen), position_y(randGen), angle(randGen), species_mask };
 			}
 			break;
 		}
