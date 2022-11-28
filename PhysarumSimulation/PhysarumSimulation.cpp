@@ -12,7 +12,7 @@ const double PARTICLE_RATIO = 0.04;
 PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapInterval, bool isFullscreen)
 	: NUM_AGENTS(static_cast<size_t>(PARTICLE_RATIO * win_width * win_height))
 {
-	m_agentSystem = PhysarumAgentSystem(win_width, win_height, NUM_AGENTS, 1, PositionMode::CENTER);
+	m_agentSystem = PhysarumAgentSystem(win_width, win_height, NUM_AGENTS, 1, PhysarumAgentSystem::PositionMode::CENTER);
 
 	m_window = std::make_unique<Window>(win_width, win_height, "Physarum Simulation", swapInterval, isFullscreen);
 
@@ -20,7 +20,7 @@ PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapIn
 	m_agentComputeProgram = std::make_unique<ComputeShader>("Shaders/Physarum/agent.comp.glsl");
 	m_textureComputeProgram = std::make_unique<ComputeShader>("Shaders/Physarum/textureProc.comp.glsl");
 
-	m_agentComputeProgram->useShaderStorageBuffer(NUM_AGENTS * sizeof(Agent), (void*)&m_agentSystem.getAgents()[0]);
+	m_agentComputeProgram->useShaderStorageBuffer(NUM_AGENTS * sizeof(PhysarumAgentSystem::Agent), (void*)&m_agentSystem.getAgents()[0]);
 
 	m_initialTexture = std::make_unique<Texture>(win_width, win_height, 0, GL_READ_WRITE);
 

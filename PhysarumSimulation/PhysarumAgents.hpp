@@ -5,21 +5,22 @@
 
 constexpr float TWO_PI = 6.2831853f;
 
-struct Agent
-{
-	float x, y; 
-	float angle;
-	int32_t speciesMask;
-};
-
-enum class PositionMode
-{
-	RANDOM, CIRCLE, CENTER
-};
-
 class PhysarumAgentSystem
 {
 public:
+
+	struct Agent
+	{
+		float x, y;
+		float angle;
+		int32_t speciesMask;
+	};
+
+	enum class PositionMode
+	{
+		RANDOM, CIRCLE, CENTER
+	};
+
 	PhysarumAgentSystem() : m_numAgents(0) {}
 	PhysarumAgentSystem(int width, int height, size_t numAgents, int8_t numSpecies, PositionMode posMode = PositionMode::RANDOM)
 		: m_numAgents(numAgents)
