@@ -155,7 +155,6 @@
     <ClCompile Include="ComputeShader.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MultipleNeighborhoodCA.cpp" />
     <ClCompile Include="PhysarumSimulation.cpp" />
     <ClCompile Include="ReactionDiffusion.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -164,7 +163,6 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MultipleNeighborhoodCA.hpp" />
     <ClInclude Include="PhysarumAgents.hpp" />
     <ClInclude Include="ComputeShader.hpp" />
     <ClInclude Include="PhysarumSimulation.hpp" />
@@ -178,8 +176,6 @@
   <ItemGroup>
     <None Include="Shaders\main.frag.glsl" />
     <None Include="Shaders\main.vert.glsl" />
-    <None Include="Shaders\Multiple-Neighborhood-CA\outputMap.comp.glsl" />
-    <None Include="Shaders\Multiple-Neighborhood-CA\simulation.comp.glsl" />
     <None Include="Shaders\Physarum\agent.comp.glsl" />
     <None Include="Shaders\Physarum\textureProc.comp.glsl" />
     <None Include="Shaders\Reaction-Diffusion\initTexture.comp.glsl" />

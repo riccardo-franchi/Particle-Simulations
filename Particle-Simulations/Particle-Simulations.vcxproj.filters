@@ -19,9 +19,6 @@
     <Filter Include="Physarum">
       <UniqueIdentifier>{eed0c58d-5a66-4c56-af67-f0db3d6143dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Multiple-Neighborhood-CA">
-      <UniqueIdentifier>{6adb094e-27cd-4b60-895e-a184ccb931ef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Libs">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -29,9 +26,6 @@
     <Filter Include="Origin Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Shaders\Multiple-Neighborhood-CA">
-      <UniqueIdentifier>{36df0e71-cb28-44c8-aec6-86b46e6184f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +56,6 @@
     <ClCompile Include="ReactionDiffusion.cpp">
       <Filter>Reaction-Diffusion</Filter>
     </ClCompile>
-    <ClCompile Include="MultipleNeighborhoodCA.cpp">
-      <Filter>Multiple-Neighborhood-CA</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PhysarumSimulation.hpp">
@@ -94,9 +85,6 @@
     <ClInclude Include="ReactionDiffusion.hpp">
       <Filter>Reaction-Diffusion</Filter>
     </ClInclude>
-    <ClInclude Include="MultipleNeighborhoodCA.hpp">
-      <Filter>Multiple-Neighborhood-CA</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\main.vert.glsl">
@@ -119,12 +107,6 @@
     </None>
     <None Include="Shaders\Reaction-Diffusion\initTexture.comp.glsl">
       <Filter>Shaders\Reaction-Diffusion</Filter>
-    </None>
-    <None Include="Shaders\Multiple-Neighborhood-CA\outputMap.comp.glsl">
-      <Filter>Shaders\Multiple-Neighborhood-CA</Filter>
-    </None>
-    <None Include="Shaders\Multiple-Neighborhood-CA\simulation.comp.glsl">
-      <Filter>Shaders\Multiple-Neighborhood-CA</Filter>
     </None>
   </ItemGroup>
 </Project>
