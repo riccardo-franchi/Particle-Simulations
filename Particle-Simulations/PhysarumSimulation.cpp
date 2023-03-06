@@ -7,7 +7,7 @@
 #include "Sprite.hpp"
 
 // Ratio of particles over total pixels
-const double PARTICLE_RATIO = 0.04;
+const double PARTICLE_RATIO{ 0.04 };
 
 PhysarumSimulation::PhysarumSimulation(int win_width, int win_height, int swapInterval, bool isFullscreen)
 	: NUM_AGENTS(static_cast<size_t>(PARTICLE_RATIO * win_width * win_height))
@@ -33,9 +33,9 @@ PhysarumSimulation::~PhysarumSimulation()
 
 void PhysarumSimulation::run()
 {
-	GLuint groups_a = static_cast<GLuint>(NUM_AGENTS / 64);
-	GLuint groups_x = m_window->getWidth() / 8;
-	GLuint groups_y = m_window->getHeight() / 8;
+	GLuint groups_a{ static_cast<GLuint>(NUM_AGENTS / 64) };
+	GLuint groups_x{ static_cast<GLuint>(m_window->getWidth() / 8) };
+	GLuint groups_y{ static_cast<GLuint>(m_window->getHeight() / 8) };
 
 	while (!m_window->windowShouldClose())
 	{

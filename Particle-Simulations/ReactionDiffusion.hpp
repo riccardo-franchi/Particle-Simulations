@@ -19,6 +19,6 @@ private:
 
 	std::unique_ptr<ComputeShader> m_textureInitComputeProgram;
 
-	DisplayMode m_displayMode = DisplayMode::AB;
+	DisplayMode m_displayMode{ DisplayMode::AB };
 };
 

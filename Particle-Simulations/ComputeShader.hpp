@@ -12,5 +12,5 @@ public:
 	void useShaderStorageBuffer(GLsizeiptr size, void* data);
 
 private:
-	GLuint m_ssbo = 0;
+	GLuint m_ssbo{ 0 };
 };

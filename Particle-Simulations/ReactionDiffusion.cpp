@@ -6,7 +6,7 @@
 #include "Texture.hpp"
 #include "Sprite.hpp"
 
-const int COMPUTATIONS_PER_FRAME = 20;
+const int COMPUTATIONS_PER_FRAME{ 20 };
 
 ReactionDiffusion::ReactionDiffusion(int win_width, int win_height, int swapInterval, bool isFullscreen)
 {
@@ -29,8 +29,8 @@ ReactionDiffusion::~ReactionDiffusion()
 
 void ReactionDiffusion::run()
 {
-	GLuint groups_x = m_window->getWidth() / 8;
-	GLuint groups_y = m_window->getHeight() / 8;
+	GLuint groups_x{ static_cast<GLuint>(m_window->getWidth() / 8) };
+	GLuint groups_y{ static_cast<GLuint>(m_window->getHeight() / 8) };
 
 	m_textureInitComputeProgram->use();
 	m_textureInitComputeProgram->dispatch(groups_x, groups_y, 1);
@@ -42,7 +42,7 @@ void ReactionDiffusion::run()
 		m_window->use();
 
 		m_agentComputeProgram->use();
-		for (int i = 0; i < COMPUTATIONS_PER_FRAME; i++)
+		for (int i{ 0 }; i < COMPUTATIONS_PER_FRAME; i++)
 		{
 			m_agentComputeProgram->dispatch(groups_x, groups_y, 1);
 		}

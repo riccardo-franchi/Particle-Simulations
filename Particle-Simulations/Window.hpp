@@ -25,5 +25,6 @@ private:
 
 	int m_winWidth, m_winHeight;
 
-	float m_deltaTime = 0.0f, m_prevFrame = 0.0f;
+	float m_deltaTime{ 0.0f };
+	float m_prevFrame{ 0.0f };
 };

@@ -2,8 +2,9 @@
 #include <vector>
 #include <random>
 #include <algorithm>
+#include <numbers>
 
-constexpr float TWO_PI = 6.2831853f;
+constexpr float TWO_PI{ 2 * static_cast<float>(std::numbers::pi) };
 
 class PhysarumAgentSystem
 {
@@ -28,7 +29,7 @@ public:
 		if (numSpecies > 3) numSpecies = 3;
 		else if (numSpecies < -1) numSpecies = -1;
 
-		std::mt19937 randGen;
+		std::default_random_engine randGen;
 		std::uniform_real_distribution<float> position_x(0.0f, (float)width);
 		std::uniform_real_distribution<float> position_y(0.0f, (float)height);
 		std::uniform_real_distribution<float> angle(0.0f, TWO_PI);
@@ -36,41 +37,41 @@ public:
 
 		m_agents.resize(m_numAgents);
 
-		int32_t species_mask = (numSpecies < 2) ? -1 : species(randGen);
+		int32_t species_mask{ (numSpecies < 2) ? -1 : species(randGen) };
 
 		switch (posMode)
 		{
 		case PositionMode::CIRCLE:
 		{
-			const float radius = std::min(width, height) / 3.0f;
+			const float radius{ std::min(width, height) / 3.0f };
 			float pos_x, pos_y;
 			
-			for (size_t i = 0; i < numAgents; i++)
+			for (Agent& a : m_agents)
 			{
 				do
 				{
 					pos_x = position_x(randGen);
 					pos_y = position_y(randGen);
 				} while (powf(pos_x - width * 0.5f, 2) + powf(pos_y - height * 0.5f, 2) > (radius * radius));
-				m_agents[i] = { pos_x, pos_y, angle(randGen), species_mask};
+				a = { pos_x, pos_y, angle(randGen), species_mask};
 			}
 			break;
 		}
 		case PositionMode::CENTER:
 		{
-			float pos_x = width * 0.5f;
-			float pos_y = height * 0.5f;
-			for (size_t i = 0; i < numAgents; i++)
+			float pos_x{ width * 0.5f };
+			float pos_y{ height * 0.5f };
+			for (Agent& a : m_agents)
 			{
-				m_agents[i] = { pos_x, pos_y, angle(randGen), species_mask };
+				a = { pos_x, pos_y, angle(randGen), species_mask };
 			}
 			break;
 		}
 		case PositionMode::RANDOM:
 		default:
-			for (size_t i = 0; i < numAgents; i++)
+			for (Agent& a : m_agents)
 			{
-				m_agents[i] = { position_x(randGen), position_y(randGen), angle(randGen), species_mask };
+				a = { position_x(randGen), position_y(randGen), angle(randGen), species_mask };
 			}
 			break;
 		}

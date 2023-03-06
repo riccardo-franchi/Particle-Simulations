@@ -4,7 +4,7 @@
 class Texture
 {
 public:
-	GLuint id = 0;
+	GLuint id{ 0 };
 	Texture(int w, int h, GLuint unit, GLenum access);
 	~Texture() {}
 };

@@ -8,12 +8,14 @@ Sprite::Sprite(float x0, float y0, float xf, float yf, GLuint texture_id)
 
 	glBindVertexArray(m_vao);
 
-	m_vertices[0] = glm::vec4(xf, y0, 1.0f, 1.0f);
-	m_vertices[1] = glm::vec4(xf, yf, 1.0f, 0.0f);
-	m_vertices[2] = glm::vec4(x0, y0, 0.0f, 1.0f);
-	m_vertices[3] = glm::vec4(xf, yf, 1.0f, 0.0f);
-	m_vertices[4] = glm::vec4(x0, yf, 0.0f, 0.0f);
-	m_vertices[5] = glm::vec4(x0, y0, 0.0f, 1.0f);
+	m_vertices = {
+		glm::vec4(xf, y0, 1.0f, 1.0f),
+		glm::vec4(xf, yf, 1.0f, 0.0f),
+		glm::vec4(x0, y0, 0.0f, 1.0f),
+		glm::vec4(xf, yf, 1.0f, 0.0f),
+		glm::vec4(x0, yf, 0.0f, 0.0f),
+		glm::vec4(x0, y0, 0.0f, 1.0f)
+	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), &m_vertices[0], GL_STATIC_DRAW);

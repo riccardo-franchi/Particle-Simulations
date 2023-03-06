@@ -12,7 +12,9 @@ Window::Window(int width, int height, const std::string& name, int swapInterval,
 
 	m_win = glfwCreateWindow(width, height, name.c_str(), isFullscreen ? glfwGetPrimaryMonitor() : nullptr, nullptr);
 	if (m_win == nullptr)
+	{
 		std::cout << "Failed to open window.\n";
+	}
 
 	glfwMakeContextCurrent(m_win);
 
@@ -31,7 +33,7 @@ Window::~Window()
 
 void Window::use()
 {
-	float currFrame = (float)glfwGetTime();
+	float currFrame{ static_cast<float>(glfwGetTime()) };
 	m_deltaTime = currFrame - m_prevFrame;
 	m_prevFrame = currFrame;
 
