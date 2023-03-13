@@ -30,28 +30,32 @@ public:
 		else if (numSpecies < -1) numSpecies = -1;
 
 		std::default_random_engine randGen;
-		std::uniform_real_distribution<float> position_x(0.0f, (float)width);
-		std::uniform_real_distribution<float> position_y(0.0f, (float)height);
-		std::uniform_real_distribution<float> angle(0.0f, TWO_PI);
-		std::uniform_int_distribution<int32_t> species(0, numSpecies - 1);
+		std::uniform_real_distribution<float> position_x{ 0.0f, static_cast<float>(width) };
+		std::uniform_real_distribution<float> position_y{ 0.0f, static_cast<float>(height) };
+		std::uniform_real_distribution<float> angle{ 0.0f, TWO_PI };
+		std::uniform_int_distribution<int32_t> species{ 0, numSpecies - 1 };
 
 		m_agents.resize(m_numAgents);
-
 		int32_t species_mask{ (numSpecies < 2) ? -1 : species(randGen) };
 
 		switch (posMode)
 		{
 		case PositionMode::CIRCLE:
 		{
-			const float radius{ std::min(width, height) / 3.0f };
+			const float scalingFactor{ 3.0f };
+			const float radius{ std::min(width, height) / (2.0f * scalingFactor) };
+
+			const float traslate_x = static_cast<float>(width) * (scalingFactor - 1.0f) / (2.0f * scalingFactor);
+			const float traslate_y = static_cast<float>(height) * (scalingFactor - 1.0f) / (2.0f * scalingFactor);
+
 			float pos_x, pos_y;
 			
 			for (Agent& a : m_agents)
 			{
 				do
 				{
-					pos_x = position_x(randGen);
-					pos_y = position_y(randGen);
+					pos_x = position_x(randGen) / scalingFactor + traslate_x;
+					pos_y = position_y(randGen) / scalingFactor + traslate_y;
 				} while (powf(pos_x - width * 0.5f, 2) + powf(pos_y - height * 0.5f, 2) > (radius * radius));
 				a = { pos_x, pos_y, angle(randGen), species_mask};
 			}

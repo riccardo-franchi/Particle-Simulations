@@ -15,7 +15,7 @@
 	#endif
 #endif
 
-constexpr int HEIGHT{ 720 };
+constexpr int HEIGHT{ 1600 };
 constexpr int WIDTH{ HEIGHT * 16 / 10 };
 
 int main()
