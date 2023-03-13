@@ -47,36 +47,38 @@ public:
 
 			const float traslate_x = static_cast<float>(width) * (scalingFactor - 1.0f) / (2.0f * scalingFactor);
 			const float traslate_y = static_cast<float>(height) * (scalingFactor - 1.0f) / (2.0f * scalingFactor);
-
-			float pos_x, pos_y;
 			
-			for (Agent& a : m_agents)
-			{
-				do
+			std::generate(m_agents.begin(), m_agents.end(), [=, &position_x, &position_y, &angle, &randGen]
 				{
-					pos_x = position_x(randGen) / scalingFactor + traslate_x;
-					pos_y = position_y(randGen) / scalingFactor + traslate_y;
-				} while (powf(pos_x - width * 0.5f, 2) + powf(pos_y - height * 0.5f, 2) > (radius * radius));
-				a = { pos_x, pos_y, angle(randGen), species_mask};
-			}
+					float pos_x, pos_y;
+
+					do
+					{
+						pos_x = position_x(randGen) / scalingFactor + traslate_x;
+						pos_y = position_y(randGen) / scalingFactor + traslate_y;
+					} while (powf(pos_x - width * 0.5f, 2) + powf(pos_y - height * 0.5f, 2) > (radius * radius));
+
+					return Agent{ pos_x, pos_y, angle(randGen), species_mask };
+				});
 			break;
 		}
 		case PositionMode::CENTER:
 		{
 			float pos_x{ width * 0.5f };
 			float pos_y{ height * 0.5f };
-			for (Agent& a : m_agents)
-			{
-				a = { pos_x, pos_y, angle(randGen), species_mask };
-			}
+
+			std::generate(m_agents.begin(), m_agents.end(), [=, &angle, &randGen]
+				{
+					return Agent{ pos_x, pos_y, angle(randGen), species_mask };
+				});
 			break;
 		}
 		case PositionMode::RANDOM:
 		default:
-			for (Agent& a : m_agents)
-			{
-				a = { position_x(randGen), position_y(randGen), angle(randGen), species_mask };
-			}
+			std::generate(m_agents.begin(), m_agents.end(), [&, species_mask]
+				{
+					return Agent{ position_x(randGen), position_y(randGen), angle(randGen), species_mask };
+				});
 			break;
 		}
 	}
