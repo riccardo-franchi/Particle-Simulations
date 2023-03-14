@@ -24,7 +24,7 @@ public:
 
 	PhysarumAgentSystem() : m_numAgents(0) {}
 	PhysarumAgentSystem(int width, int height, size_t numAgents, int8_t numSpecies, PositionMode posMode = PositionMode::RANDOM)
-		: m_numAgents(numAgents)
+		: m_numAgents{ numAgents }
 	{
 		if (numSpecies > 3) numSpecies = 3;
 		else if (numSpecies < -1) numSpecies = -1;
@@ -48,7 +48,7 @@ public:
 			const float traslate_x = static_cast<float>(width) * (scalingFactor - 1.0f) / (2.0f * scalingFactor);
 			const float traslate_y = static_cast<float>(height) * (scalingFactor - 1.0f) / (2.0f * scalingFactor);
 			
-			std::generate(m_agents.begin(), m_agents.end(), [=, &position_x, &position_y, &angle, &randGen]
+			std::generate(m_agents.begin(), m_agents.end(), [&]
 				{
 					float pos_x, pos_y;
 
@@ -67,7 +67,7 @@ public:
 			float pos_x{ width * 0.5f };
 			float pos_y{ height * 0.5f };
 
-			std::generate(m_agents.begin(), m_agents.end(), [=, &angle, &randGen]
+			std::generate(m_agents.begin(), m_agents.end(), [&]
 				{
 					return Agent{ pos_x, pos_y, angle(randGen), species_mask };
 				});
@@ -75,7 +75,7 @@ public:
 		}
 		case PositionMode::RANDOM:
 		default:
-			std::generate(m_agents.begin(), m_agents.end(), [&, species_mask]
+			std::generate(m_agents.begin(), m_agents.end(), [&]
 				{
 					return Agent{ position_x(randGen), position_y(randGen), angle(randGen), species_mask };
 				});

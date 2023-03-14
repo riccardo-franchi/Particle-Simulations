@@ -1,21 +1,20 @@
 #include "Sprite.hpp"
 
-Sprite::Sprite(float x0, float y0, float xf, float yf, GLuint texture_id)
-	: m_texture_id(texture_id)
-{
-	glGenBuffers(1, &m_vbo);
-	glGenVertexArrays(1, &m_vao);
-
-	glBindVertexArray(m_vao);
-
-	m_vertices = {
+Sprite::Sprite(float x0, float y0, float xf, float yf, GLuint texture_id) :
+	m_texture_id{ texture_id },
+	m_vertices{
 		glm::vec4(xf, y0, 1.0f, 1.0f),
 		glm::vec4(xf, yf, 1.0f, 0.0f),
 		glm::vec4(x0, y0, 0.0f, 1.0f),
 		glm::vec4(xf, yf, 1.0f, 0.0f),
 		glm::vec4(x0, yf, 0.0f, 0.0f),
-		glm::vec4(x0, y0, 0.0f, 1.0f)
-	};
+		glm::vec4(x0, y0, 0.0f, 1.0f) 
+	 }
+{
+	glGenBuffers(1, &m_vbo);
+	glGenVertexArrays(1, &m_vao);
+
+	glBindVertexArray(m_vao);
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), &m_vertices[0], GL_STATIC_DRAW);
