@@ -29,7 +29,7 @@ public:
 		if (numSpecies > 3) numSpecies = 3;
 		else if (numSpecies < -1) numSpecies = -1;
 
-		std::default_random_engine randGen;
+		std::default_random_engine randGen(std::random_device{}());
 		std::uniform_real_distribution<float> position_x{ 0.0f, static_cast<float>(width) };
 		std::uniform_real_distribution<float> position_y{ 0.0f, static_cast<float>(height) };
 		std::uniform_real_distribution<float> angle{ 0.0f, TWO_PI };
