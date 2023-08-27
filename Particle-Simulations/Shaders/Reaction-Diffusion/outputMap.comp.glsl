@@ -21,15 +21,15 @@ void main()
 
 		if (displayMode == 0) 
 		{
-			vec3 aCol = vec3(0.0, 0.0549, 0.411);
-			vec3 bCol = vec3(1.0, 0.937, 0.451);
-			vec3 col = mix(aCol, bCol, 1 - a + b);
+			vec3 aCol = vec3(0.02, 0.0549, 0.311);
+			vec3 bCol = vec3(0.938, 0.4, 0.451);
+			vec3 col = mix(aCol, bCol, pow(1 - a + b, 6));
 			imageStore(imgOutput, pixelCoords, vec4(col, 1.0)); 
 		}
 		else if (displayMode == 1)
 		{
 			// a is black and b is white
-			imageStore(imgOutput, pixelCoords, vec4(1 - a + b));
+			imageStore(imgOutput, pixelCoords, vec4(pow(1 - a + b, 6)));
 		}
 		else if (displayMode == 2)
 		{
