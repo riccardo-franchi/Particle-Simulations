@@ -3,10 +3,10 @@
 layout (local_size_x = 8, local_size_y = 8) in;
 layout (rgba32f, binding = 0) uniform image2D map;
 
-const float feedrate = 0.055;
-const float removeRate = 0.062;
-const float diffuseRateA = 1.0;
-const float diffuseRateB = 0.5;
+const float feedrate = 0.029;
+const float removeRate = 0.057;
+const float diffuseRateA = 0.2;
+const float diffuseRateB = 0.1;
 const int diffuseRadius = 5;
 
 void main()

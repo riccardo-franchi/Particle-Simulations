@@ -15,12 +15,12 @@
 	#endif
 #endif
 
-constexpr int HEIGHT{ 1600 };
+constexpr int HEIGHT{ 700 };
 constexpr int WIDTH{ HEIGHT * 16 / 10 };
 
 int main()
 {
-	auto simulation = std::make_unique<PhysarumSimulation>(WIDTH, HEIGHT, 1, true);
+	auto simulation = std::make_unique<ReactionDiffusion>(WIDTH, HEIGHT, 1, true);
 	simulation->run();
 
 	return 0;
